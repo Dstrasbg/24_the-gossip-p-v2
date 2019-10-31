@@ -1,0 +1,49 @@
+<h2 class="h1-responsive font-weight-bold my-5">Bienvenue sur la page de <%= @user.first_name%> <%=	 @user.last_name%></h2>
+
+
+	<div class="my-3 p-3 bg-white rounded box-shadow text-success">
+   
+
+        <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">PRENOM</strong>
+            <%= @user.first_name%>
+          </p>
+        </div>
+
+        <div class="media text-dark pt-3">  
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">NOM</strong>
+            <%= @user.last_name%>
+          </p>
+        </div>
+
+
+         <div class="media text-dark pt-3">  
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">DESCRIPTION</strong>
+            <%= @user.description%>
+          </p>
+
+        </div> <div class="media text-dark pt-3">  
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">EMAIL</strong>
+            <%= @user.email%>
+          </p>
+        </div>
+
+        <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">AGE</strong>
+          		<%= @user.age%> ans
+          </p>
+        </div>
+
+         <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">VILLE</strong>
+            <a> <%= link_to @city.name, city_path(@city.id) %> </a>
+          </p>
+        </div>
+
+   </div>

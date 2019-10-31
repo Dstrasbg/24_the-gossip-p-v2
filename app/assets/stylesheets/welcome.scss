@@ -1,0 +1,16 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.center {text-align: center}
+
+.jumbotron {
+	background-image: url("https://images.unsplash.com/photo-1483706600674-e0c87d3fe85b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=782&q=80");
+	background-size: contain;
+	margin-left: -65px;
+	margin-bottom: 0px;
+ 	height: 300px;
+ 	color: white; /* Le texte sera affiché en blanc */
+ 	text-shadow: black 0.3em 0.3em 0.3em;
+ 	}

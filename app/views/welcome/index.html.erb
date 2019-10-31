@@ -1,0 +1,41 @@
+
+<div class = "jumbotron">
+	<h1>Bienvenue <%= @first_name %> sur The Gossip Project</h1>
+		<h4>Viens assouvir tes plus basses pulsions et bitcher sur tes "potes".</h4>
+		</br>
+			<p class = "center">Pour contribuer, toi aussi, à la destruction de la vie privée et créer un nouveau gossip, <a> <%= link_to "c'est ici !", new_gossip_path %> </a> </p>
+		</br>
+		</br>
+</div>
+
+		</br>
+
+          <h2 class="h1-responsive font-weight-bold my-5">Voici les potins en stock, régale-toi...</h2>
+
+
+<section>
+<div class="card-deck">
+<%Gossip.all.each do |gossip|%>
+<div class="col-sm-4 mb-3">
+<div class="card">
+  <div class="card-header">
+    Gossip #<%=gossip.id%>
+  </div>
+  <div class="card-body align-center">
+    <blockquote class="blockquote mb-0">
+      <p><%=gossip.title%></p>
+      <footer class="blockquote-footer">
+      <div class="row justify-content-between align-self-center mx-3">
+        <p><%=User.find(gossip.user_id).first_name%> <%=User.find(gossip.user_id).last_name%></p>
+        <a class="btn btn-info" <%= link_to "Voir plus", gossip_path(gossip.id)%></a>
+      </div>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+</div>
+<%end%>
+</div>
+</section>
+
+

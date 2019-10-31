@@ -1,0 +1,58 @@
+ <h2 class="h1-responsive font-weight-bold my-5">Bienvenue sur la page du gossip n° <%= @gossip.id %></h2>
+
+		<div class="my-3 p-3 bg-white rounded box-shadow text-success">
+   
+
+        <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">TITRE</strong>
+            <%= @gossip.title%>
+          </p>
+        </div>
+
+        <div class="media text-dark pt-3">  
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">CONTENU</strong>
+            <%= @gossip.content%>
+          </p>
+        </div>
+
+        <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">AUTEUR</strong>
+          		<a> <%= link_to @gossip.user.first_name+" "+@gossip.user.last_name, user_path(@gossip.user_id) %> </a>
+          </p>
+        </div>
+
+         <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">VILLE</strong>
+            <a> <%= link_to @city.name, city_path(@city.id) %> </a>
+          </p>
+        </div>
+
+
+        <div class="media text-dark pt-3"> 
+          <div class="row">
+						<div class="pull-left">
+						    <button type="button" class="btn btn-default btn-lg">
+						        <span class="glyphicon glyphicon-chevron-left"><p><a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-success">Editer</a></p></span>
+						     </button>
+						 </div>
+						 <div class="pull-right">
+						    <button type="button" class="btn btn-default btn-lg">
+						        <span class="glyphicon glyphicon-chevron-right"><p><a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger" data-confirm="Vous êtes bien sûr de vouloir supprimer ce gossip à jamais ?" data-method="DELETE">Supprimer</a></p></span>
+						    </button>
+						 </div>
+       		</div>
+       	</div>
+	  </div>
+
+		<div style="margin-left: 35px">
+  		<strong class="d-block text-gray-dark">AJOUTER UN COMMENTAIRE</strong>
+        <%= form_tag gossip_comments_path(@gossip.id), method: "post" do %>
+        <%= label_tag 'Ajouter un commentaire :' %>
+   			<%= text_field_tag(:content)%>
+			  <%= submit_tag "Valider", class: "btn btn-info btn" %>
+			    <% end %>
+   	</div>
