@@ -66,3 +66,5 @@ gem "faker", "~> 2.6"
 gem "table_print", "~> 1.5"
 
 gem "bcrypt", "~> 3.1"
+
+#end gemfile

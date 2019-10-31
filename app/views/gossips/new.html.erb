@@ -1,38 +1,92 @@
+<h2 class="h1-responsive font-weight-bold my-5">Bienvenue sur la page du gossip n°<%= @gossip.id %></h2>
 
-<h2 class="h1-responsive font-weight-bold my-5">Page de création d'un nouveau gossip</h2>
+		<div class="my-3 p-3 bg-white rounded box-shadow text-success">
+   
 
-<body>
+        <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">TITRE</strong>
+            <%= @gossip.title%>
+          </p>
+        </div>
 
+        <div class="media text-dark pt-3">  
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">CONTENU</strong>
+            <%= @gossip.content%>
+          </p>
+        </div>
 
-	  <p class="h4 mb-4"> Pour créer un nouveau gossip, remplissez le formulaire ci-dessous </p>
+        <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">AUTEUR</strong>
+          		<a> <%= link_to @gossip.user.first_name+" "+@gossip.user.last_name, user_path(@gossip.user_id) %> </a>
+          </p>
+        </div>
 
-	  
-	    <%= form_tag url_for(action: 'create'), method: "post" do %>
-
-					<% if @gossip.errors.any? %>
-							<div class="alert alert-danger" role="alert">
-								  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-									  <ul>
-									    <% @gossip.errors.full_messages.each do |message| %>
-									      <li><%= message %></li>
-									    <% end %>
-									  </ul>
-									<% end %>			
-							</div>
-
-		      <%= label_tag 'Titre du gossip :' %>
-		      <%= text_field_tag(:title)%>
-		      <br /> <br />
-
-		      <%= label_tag 'Dîtes-nous tout :' %>
-		      <%= text_field_tag(:content)%>
-		      <br /> <br />
-		  
-		      <%= submit_tag "Valider" %>
-
-	    <% end %>
-
-	  
+         <div class="media text-dark pt-3"> 
+          <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">VILLE</strong>
+            <a> <%= link_to @city.name, city_path(@city.id) %> </a>
+          </p>
+        </div>
 
 
-</body>
+      <% if current_user == @gossip.user%>
+ 
+        <div class="media text-dark pt-3"> 
+          <div class="row">
+						<div class="pull-left">
+						    <button type="button" class="btn btn-default btn-lg">
+						        <span class="glyphicon glyphicon-chevron-left"><p><a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-success">Editer</a></p></span>
+						     </button>
+						 </div>
+						 <div class="pull-right">
+						    <button type="button" class="btn btn-default btn-lg">
+						        <span class="glyphicon glyphicon-chevron-right"><p><a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger" data-confirm="Vous êtes bien sûr de vouloir supprimer ce gossip à jamais ?" data-method="DELETE">Supprimer</a></p></span>
+						    </button>
+						 </div>
+       		</div>
+       	</div>
+	 <%end%>
+	 
+	  </div>
+
+		<div style="margin-left: 35px">
+  		<strong class="d-block text-gray-dark">AJOUTER UN COMMENTAIRE</strong>
+    </br>
+        <%= form_tag gossip_comments_path(@gossip.id), method: "post" do %>
+        <%= label_tag 'Ajouter un commentaire :' %>
+   			<%= text_field_tag(:content)%>
+			  <%= submit_tag "Valider", class: "btn btn-info btn" %>
+			    <% end %>
+   		</div>
+
+   </br>
+   </br>
+   
+    <section>
+    <div class="card-deck">
+    <%Comment.all.each do |comment|%>
+    <%if comment.commentable_id == @gossip.id%>
+    <div class="col-sm-4 mb-3">
+    <div class="card">
+      <div class="card-header">
+        Comment #<%=comment.id%>
+      </div>
+      <div class="card-body align-center">
+        <blockquote class="blockquote mb-0">
+          <p>by <%=User.find(comment.user_id).first_name%></p>
+          <footer class="blockquote-footer">
+          <div class="row justify-content-between align-self-center mx-3">
+            <p><%=comment.content%></p>
+           </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+    </div>
+    <%end%>
+    <%end%>
+    </div>
+    </section>
