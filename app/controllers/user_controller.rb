@@ -23,7 +23,10 @@ class UserController < ApplicationController
   									 'age' => params[:age],
   									 'city_id' => City.first.id,
   									 'email' => params[:email],
-  									 'password' => params[:password_digest])
+									   'password' => params[:password_digest])
+	  end
+
+	  
 		  if @user.save
 			log_in(@user)
 			flash[:success] = "Inscription réussie ! Vous êtes connecté en tant que #{@user.first_name}"	
