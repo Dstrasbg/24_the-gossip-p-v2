@@ -1,8 +1,9 @@
 # README
 
-THP Session 10 - Semaine 5 - Jour 1
+THP Session 10  -  Semaine 5  -  Jour 4
+(23.09.19 - 13.12.19)
 
-C'est le retour du "THE GOSSIP PROJET", qui sera rempli de plein de potins hihi...
+"THE GOSSIP PROJET" est de retour (et amélioré), il sera rempli de plein de potins ...
 
 Avant tout :
 
@@ -15,30 +16,17 @@ Avant tout :
  $ bundle install
 
 - Recréer la BDD
- $ rake db:migrate db:seed
+ $ rake db:create   puis,  $ rails db:migrate 
+ 
+- Remplir la BDD
+ $ rails db:seed
 
-- Lancer rails server:
+- Lancer le rails server:
  $ rails s
 
-- Aller sur le site TGP sur localhost:3000
+- Sur ton navigateur, aller sur le site TGP sur http://localhost:3000/welcome
 
 - A toi de lire les potins...
-
-----------------------------
-
-Le site te permettra de d'avoir (normalement tout):
-
-- affichage des pages 'Team' et 'Contact' de type html
-
-- affichage d'un header sur toutes les pages
-
-- affichage d'une page de bienvenue dynamique
-
-- affichage de la page de liste des potins
-
-- affichage de la page de détail d'un potin, -possibilité d'aller voir la page de son user
-
-- affichage de la page de détail d'un user, possibilité d'aller voir ses potins
 
 ------------------------
 
@@ -73,4 +61,4 @@ psql (PostgreSQL) 9.5.19
 
 -----
 
-Daniel Argudo Blum - 2019
+DAB - 2019
