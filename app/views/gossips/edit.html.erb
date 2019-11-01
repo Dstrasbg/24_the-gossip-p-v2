@@ -4,7 +4,7 @@
  
    <div class=" border border-light p-5">
 
-     <p class="h4 mb-4">Pour éditer le potin, compléter le formulaire</p>
+     <p class="h4 mb-4">Pour éditer le potin, merci de remplir le formulaire</p>
 
       <%= form_tag url_for(action: 'update'), method: "patch" do %>
         
@@ -16,7 +16,7 @@
            
            </br>
 
-        <%= submit_tag "Valider", class: "btn btn-info btn-block" %>
+        <%= submit_tag "Valider", class: "btn btn-primary btn-block" %>
 
       <% end %>
     </div>

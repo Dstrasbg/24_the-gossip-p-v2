@@ -1,4 +1,3 @@
-
 <div class = "jumbotron">
 
   <% if logged_in?%>
@@ -7,9 +6,9 @@
     <h1>Bienvenue sur The Gossip Project !</h1>
   <%end%>
 
-		<h4>Viens assouvir tes plus basses pulsions et bitcher sur tes "potes".</h4>
+		<h4>Ce site est le tien publier tous les potions des potes.</h4>
 		</br>
-			<p class = "center">Pour contribuer, toi aussi, à la destruction de la vie privée et créer un nouveau gossip, <a> <%= link_to "c'est ici !", new_gossip_path %> </a> </p>
+			<p class = "center">Convaincu? On te lance le défi et fais ton premier post<a> <%= link_to "Clique ici !", new_gossip_path %> </a> </p>
 		</br>
 		</br>
 </div>
@@ -21,7 +20,7 @@
  <% elsif flash[:danger] %>
       <div class="alert alert-danger" role="alert"><%= flash[:danger] %></div>
    <% end %>
-          <h2 class="h1-responsive font-weight-bold my-5">Voici les potins en stock, régale-toi...</h2>
+          <h2 class="h1-responsive font-weight-bold my-5">Nos potins en stock: </h2>
 
 
 <section>
@@ -38,7 +37,7 @@
       <footer class="blockquote-footer">
       <div class="row justify-content-between align-self-center mx-3">
         <p><%=User.find(gossip.user_id).first_name%> <%=User.find(gossip.user_id).last_name%></p>
-        <a class="btn btn-info" <%= link_to "Voir plus", gossip_path(gossip.id)%></a>
+        <a class="btn btn-primary" <%= link_to "ça m'interesse", gossip_path(gossip.id)%></a>
       </div>
       </footer>
     </blockquote>

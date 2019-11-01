@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-  
-  <html>
-
+    <html>
     <head>   
 
-      <!-- CDN Link thanks to starter template on Bootstrap.com -->
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Bootstrap.com -->
+      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-      <title>TheGossipProject</title>
+      <title>The Gossip Project 2019</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
 
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
     </head>
 
-
     <body>
-
-            <!-- Navigation bar-->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" <%= link_to "GossipProject", welcome_index_path %> </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Navigation bar-->             
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a class="navbar-primary" <%= link_to "TheGossipProject", welcome_index_path %> </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link" <%= link_to "Accueil", welcome_index_path %> </a>
@@ -32,10 +29,12 @@
             <a class ="nav-link"<%= link_to "Contact",contact_index_path %></a>
           </div>
         </div>
+
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Inscription / Connexion
           </a>
+
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="<%= new_user_path %>">Inscription</a>
               <a class="dropdown-item" href="<%= new_session_path %>">Connexion</a>
@@ -43,11 +42,8 @@
             </div>
         </div>
       </nav>
-
-    <%= yield %>
-  
-    </body>
-
+  <%= yield %>
+  </body>
 
  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
