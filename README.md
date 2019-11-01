@@ -15,8 +15,12 @@ Avant tout :
 - Installer les gemes grâce à:
  $ bundle install
 
-- Recréer la BDD
- $ rake db:create   puis,  $ rails db:migrate 
+- Vider et recréer la BDD
+ $ rails db:drop
+
+puis
+
+ $ rails db:create db:migrate 
  
 - Remplir la BDD
  $ rails db:seed
