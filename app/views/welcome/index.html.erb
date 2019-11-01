@@ -1,16 +1,15 @@
 <div class = "jumbotron">
-
-  <% if logged_in?%>
+<br>
+<br>
+<br>
+  <% if logged_in?%> 
     <h1>Bienvenue <%= User.find_by(id:session[:user_id]).first_name %> !</h1>
   <%else%>
-    <h1>Bienvenue sur The Gossip Project !</h1>
+    <h1>Bienvenue sur The Gossip Project</h1>
   <%end%>
-
-		<h4>Ce site est le tien publier tous les potions des potes.</h4>
-		</br>
-			<p class = "center">Convaincu? On te lance le défi et fais ton premier post<a> <%= link_to "Clique ici !", new_gossip_path %> </a> </p>
-		</br>
-		</br>
+		<h4>Ce site est le tien pour publier tous les potions des potes.</h4>
+			<p class = "center">Convaincu? On te lance le défi et fais ton premier post <a> <%= link_to "clique ici !", new_gossip_path %> </a> </p>
+		<br>
 </div>
 
 		</br>
@@ -20,8 +19,8 @@
  <% elsif flash[:danger] %>
       <div class="alert alert-danger" role="alert"><%= flash[:danger] %></div>
    <% end %>
-          <h2 class="h1-responsive font-weight-bold my-5">Nos potins en stock: </h2>
-
+   <br>
+          <h4 class="h1-responsive font-weight-bold my-5">Nos potins en stock: </h3>
 
 <section>
 <div class="card-deck">
@@ -47,5 +46,3 @@
 <%end%>
 </div>
 </section>
-
-
